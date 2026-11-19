@@ -1,10 +1,11 @@
 server:
   port: 8080
 
-
-spring:
+app:
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+    stomp:
+      host: ${RABBITMQ_HOST:localhost}
+      port: ${RABBITMQ_STOMP_PORT:61613}
+      username: ${RABBITMQ_USERNAME:chatws}
+      password: ${RABBITMQ_PASSWORD:chatws-demo}
+      virtual-host: ${RABBITMQ_VIRTUAL_HOST:/}
